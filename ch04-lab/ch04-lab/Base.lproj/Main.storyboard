@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ch04_lab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS9-4M-Obd">
+                                <rect key="frame" x="17" y="437.5" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4o2-Bi-Uff">
+                                <rect key="frame" x="51" y="481.5" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgb-we-wDJ">
+                                <rect key="frame" x="120" y="321" width="274" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="irE-wc-jpn"/>
+                                </constraints>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CUS-rF-tfK">
+                                <rect key="frame" x="120" y="431" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Me4-DD-KdY">
+                                <rect key="frame" x="120" y="475" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-gz-dbf">
+                                <rect key="frame" x="120" y="519" width="82" height="30"/>
+                                <state key="normal" title="비밀번호 변경"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yg-Qp-oka">
+                                <rect key="frame" x="120" y="559" width="30" height="30"/>
+                                <state key="normal" title="확인"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="커뮤니티" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0P-wp-GZ7">
+                                <rect key="frame" x="51" y="360.5" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Me4-DD-KdY" firstAttribute="top" secondItem="CUS-rF-tfK" secondAttribute="bottom" constant="10" id="61q-2j-09m"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="leading" secondItem="KS9-4M-Obd" secondAttribute="trailing" constant="10" id="8Xx-Ne-Dkp"/>
+                            <constraint firstItem="4Yg-Qp-oka" firstAttribute="top" secondItem="L8p-gz-dbf" secondAttribute="bottom" constant="10" id="DGJ-gO-vGQ"/>
+                            <constraint firstItem="L8p-gz-dbf" firstAttribute="leading" secondItem="xgb-we-wDJ" secondAttribute="leading" id="GCu-Nw-jqM"/>
+                            <constraint firstItem="Me4-DD-KdY" firstAttribute="leading" secondItem="xgb-we-wDJ" secondAttribute="leading" id="Gl9-J8-Ggo"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="centerY" secondItem="KS9-4M-Obd" secondAttribute="centerY" id="JvD-dP-Rlm"/>
+                            <constraint firstItem="Q0P-wp-GZ7" firstAttribute="centerY" secondItem="xgb-we-wDJ" secondAttribute="centerY" id="KQe-1U-5lw"/>
+                            <constraint firstItem="Me4-DD-KdY" firstAttribute="width" secondItem="xgb-we-wDJ" secondAttribute="width" id="YcV-38-WEW"/>
+                            <constraint firstItem="4Yg-Qp-oka" firstAttribute="leading" secondItem="xgb-we-wDJ" secondAttribute="leading" id="fWe-P7-xal"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="top" secondItem="xgb-we-wDJ" secondAttribute="bottom" constant="10" id="ixj-Wz-CZA"/>
+                            <constraint firstItem="Me4-DD-KdY" firstAttribute="centerY" secondItem="4o2-Bi-Uff" secondAttribute="centerY" id="kaM-5l-VdN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CUS-rF-tfK" secondAttribute="trailing" constant="20" id="mkw-cT-9kM"/>
+                            <constraint firstItem="Me4-DD-KdY" firstAttribute="leading" secondItem="4o2-Bi-Uff" secondAttribute="trailing" constant="10" id="n7Z-4L-1Ed"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="width" secondItem="xgb-we-wDJ" secondAttribute="width" id="o1o-ID-Nfs"/>
+                            <constraint firstItem="xgb-we-wDJ" firstAttribute="leading" secondItem="Q0P-wp-GZ7" secondAttribute="trailing" constant="10" id="rPn-kM-t8J"/>
+                            <constraint firstItem="L8p-gz-dbf" firstAttribute="top" secondItem="Me4-DD-KdY" secondAttribute="bottom" constant="10" id="rQc-M4-knj"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="s3a-D9-Sg7"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="leading" secondItem="xgb-we-wDJ" secondAttribute="leading" id="xI5-UX-QST"/>
+                            <constraint firstItem="CUS-rF-tfK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="xaD-Re-Xvz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13.043478260869566" y="54.910714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
