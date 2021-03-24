@@ -21,6 +21,10 @@ extension ConversionViewController {
         helloLabel.textAlignment = .center
         
         view.addSubview(helloLabel)
+        
+        helloLabel.translatesAutoresizingMaskIntoConstraints = false
+        helloLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        helloLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
     }
 }
 
