@@ -12,6 +12,7 @@ class ConversionViewController: UIViewController {
     var fahrenheitTextField: UITextField!
     var celsiusLabel: UILabel!
     var fdegreeLabel, isLabel, cdegreeLabel: UILabel!
+    var segmentedControl: UISegmentedControl!
 }
 
 extension ConversionViewController {
@@ -35,6 +36,8 @@ extension ConversionViewController {
         view.addGestureRecognizer(tapGesture)
         
         fahrenheitTextField.delegate = self
+        
+        addSegmentedControl()
     }
 }
 
@@ -85,7 +88,13 @@ extension ConversionViewController {
     @objc func fahrenheitEditingChanged(sender: UITextField) {
         if let text = sender.text {
             if let fahrenheitValue = Double(text) {
-                let celsiusValue = 5.0 / 9.0 * (fahrenheitValue - 32.0)
+                var celsiusValue: Double!
+                if segmentedControl.selectedSegmentIndex == 0 {
+                    celsiusValue = 5.0 / 9.0 * (fahrenheitValue - 32.0)
+                } else {
+                    celsiusValue = 9.0 / 5.0 * fahrenheitValue + 32.0
+                }
+                
                 celsiusLabel.text = String.init(format: "%.2f", celsiusValue)
             } else {
                 celsiusLabel.text = "???"
@@ -110,5 +119,35 @@ extension ConversionViewController: UITextFieldDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension ConversionViewController {
+    func addSegmentedControl() {
+        segmentedControl = UISegmentedControl(items: ["Fahrenheit", "Celsius"])
+        let font = UIFont.systemFont(ofSize: 20)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(segmentedControl)
+        
+        segmentedControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        segmentedControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        
+        segmentedControl.addTarget(self, action: #selector(changeDegree), for: .valueChanged)
+    }
+}
+
+extension ConversionViewController {
+    @objc func changeDegree(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            fdegreeLabel.text = "degrees Fahrenheit"
+            cdegreeLabel.text = "degrees Celsius"
+        } else {
+            fdegreeLabel.text = "degrees Celsius"
+            cdegreeLabel.text = "degrees Fahrenheit"
+        }
+        fahrenheitEditingChanged(sender: fahrenheitTextField)
     }
 }
