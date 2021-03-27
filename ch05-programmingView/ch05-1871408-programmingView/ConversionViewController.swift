@@ -9,22 +9,44 @@ import UIKit
 
 class ConversionViewController: UIViewController {
 
+    var fahrenheitTextField: UITextField!
+    var celsiusLabel: UILabel!
+    var fdegreeLabel, isLabel, cdegreeLabel: UILabel!
 }
 
 extension ConversionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let helloLabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 30))
-        helloLabel.text = "Hello, autolayout"
-        helloLabel.backgroundColor = .green
-        helloLabel.textAlignment = .center
+        isLabel = createLabel("is", fontSize: 36)
+        isLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        isLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    }
+}
+
+extension ConversionViewController {
+    func createTextField(placeHolder: String) -> UITextField {
+        let textField = UITextField(frame: CGRect())
+        textField.textAlignment = .center
+        textField.placeholder = placeHolder
+        textField.font = UIFont(name: textField.font!.fontName, size: 70)
+        textField.keyboardType = .decimalPad
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(textField)
+        return textField
+    }
+}
+
+extension ConversionViewController {
+    func createLabel(_ text: String, fontSize: CGFloat) -> UILabel {
         
-        view.addSubview(helloLabel)
-        
-        helloLabel.translatesAutoresizingMaskIntoConstraints = false
-        helloLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-        helloLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        let label = UILabel(frame: CGRect())
+        label.text = text
+        label.textColor = UIColor(red: CGFloat(0xe1)/CGFloat(256), green: CGFloat(0x58)/CGFloat(256), blue: CGFloat(0x29)/CGFloat(256), alpha: CGFloat(1))
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(label)
+        return label
     }
 }
 
