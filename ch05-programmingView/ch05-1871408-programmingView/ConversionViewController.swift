@@ -29,6 +29,12 @@ extension ConversionViewController {
         
         connectVertically(views: fahrenheitTextField, fdegreeLabel, isLabel, celsiusLabel, cdegreeLabel, spacing: 8)
         connectHorizontally(views: [fahrenheitTextField, fdegreeLabel, isLabel, celsiusLabel, cdegreeLabel])
+        
+        fahrenheitTextField.addTarget(self, action: #selector(fahrenheitEditingChanged), for: .editingChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        
+        fahrenheitTextField.delegate = self
     }
 }
 
@@ -75,3 +81,34 @@ extension ConversionViewController {
     }
 }
 
+extension ConversionViewController {
+    @objc func fahrenheitEditingChanged(sender: UITextField) {
+        if let text = sender.text {
+            if let fahrenheitValue = Double(text) {
+                let celsiusValue = 5.0 / 9.0 * (fahrenheitValue - 32.0)
+                celsiusLabel.text = String.init(format: "%.2f", celsiusValue)
+            } else {
+                celsiusLabel.text = "???"
+            }
+        }
+    }
+}
+
+extension ConversionViewController {
+    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
+        fahrenheitTextField.resignFirstResponder()
+    }
+}
+
+extension ConversionViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let existingTextHasDecimalSeperator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeperator = string.range(of: ".")
+        if existingTextHasDecimalSeperator != nil && replacementTextHasDecimalSeperator != nil {
+            return false
+        } else {
+            return true
+        }
+    }
+}
