@@ -24,5 +24,28 @@ class MapViewController: UIViewController {
 extension MapViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("MapViewController.viewWillAppear")
+        
+        let tabBarController = parent as! UITabBarController
+        let cityViewController = tabBarController.viewControllers![0] as! CityViewController
+        let (city, longitude, latitude) = cityViewController.getCurrentLonLat()
+        
+        updateMap(title: city, longitude: longitude, latitude: latitude)
+    }
+}
+
+extension MapViewController {
+    func updateMap(title: String, longitude: Double?, latitude: Double?) {
+        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        var center = mapView.centerCoordinate
+        if let lon = longitude, let lat = latitude {
+            center = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        }
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = center
+        annotation.title = title
+        mapView.addAnnotation(annotation)
     }
 }
