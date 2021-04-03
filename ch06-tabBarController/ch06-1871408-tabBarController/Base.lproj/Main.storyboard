@@ -38,6 +38,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="City" image="CityIcon" id="7KM-eO-Yte"/>
+                    <connections>
+                        <outlet property="cityPickerView" destination="h8W-b0-Vg2" id="33p-r3-hQG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,6 +68,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="kPI-Kf-QQ5"/>
+                    <connections>
+                        <outlet property="mapView" destination="XZM-nW-QDy" id="gqn-4V-MEd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eie-VN-jx9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
