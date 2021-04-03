@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CityViewController" customModule="ch06_1871408_tabBarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8W-b0-Vg2">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL5-gL-had">
+                                <rect key="frame" x="165.5" y="311" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h8W-b0-Vg2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5c7-6o-qPb"/>
+                            <constraint firstItem="h8W-b0-Vg2" firstAttribute="top" secondItem="UL5-gL-had" secondAttribute="bottom" constant="8" id="6XV-DI-0Eg"/>
+                            <constraint firstItem="h8W-b0-Vg2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GzQ-q4-OD0"/>
+                            <constraint firstItem="h8W-b0-Vg2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SBz-P6-Ilz"/>
+                            <constraint firstItem="h8W-b0-Vg2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U4h-k6-1mx"/>
+                            <constraint firstItem="UL5-gL-had" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jam-Hi-xjG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="89"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="er0-c7-aUr">
+            <objects>
+                <viewController id="TNY-Ve-nRU" customClass="MapViewController" customModule="ch06_1871408_tabBarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fDX-ta-foG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XZM-nW-QDy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AMW-X4-SJe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XZM-nW-QDy" firstAttribute="leading" secondItem="fDX-ta-foG" secondAttribute="leading" id="BaE-Vr-OfB"/>
+                            <constraint firstItem="XZM-nW-QDy" firstAttribute="top" secondItem="fDX-ta-foG" secondAttribute="top" id="KfT-e5-LfA"/>
+                            <constraint firstAttribute="bottom" secondItem="XZM-nW-QDy" secondAttribute="bottom" id="l8l-Ns-HgW"/>
+                            <constraint firstAttribute="trailing" secondItem="XZM-nW-QDy" secondAttribute="trailing" id="vB1-wg-fUh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eie-VN-jx9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="88"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
