@@ -18,10 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let cityViewController = window?.rootViewController as! CityViewController
+//        let cityViewController = window?.rootViewController as! CityViewController
+//        let label = cityViewController.view.subviews[1] as! UILabel
+//        label.text = "jhlee"
+//        print("scene")
+        
+        let tabBarController = window?.rootViewController as! UITabBarController
+        let cityViewController = (tabBarController.viewControllers?[0]) as! CityViewController
         let label = cityViewController.view.subviews[1] as! UILabel
-        label.text = "jhlee"
-        print("scene")
+        label.text = "benny"
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

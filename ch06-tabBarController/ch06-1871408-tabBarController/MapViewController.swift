@@ -13,7 +13,14 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("MapViewController.viewDidLoad")
     }
     
 
+}
+
+extension MapViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        print("MapViewController.viewWillAppear")
+    }
 }
