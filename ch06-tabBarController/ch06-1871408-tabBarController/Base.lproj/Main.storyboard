@@ -57,14 +57,28 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XZM-nW-QDy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e4B-aW-1BW">
+                                <rect key="frame" x="20" y="53" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="TNY-Ve-nRU" eventType="valueChanged" id="a8P-PP-t6n"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AMW-X4-SJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XZM-nW-QDy" firstAttribute="leading" secondItem="fDX-ta-foG" secondAttribute="leading" id="BaE-Vr-OfB"/>
                             <constraint firstItem="XZM-nW-QDy" firstAttribute="top" secondItem="fDX-ta-foG" secondAttribute="top" id="KfT-e5-LfA"/>
+                            <constraint firstItem="AMW-X4-SJe" firstAttribute="trailing" secondItem="e4B-aW-1BW" secondAttribute="trailing" constant="20" id="bCu-3l-5HN"/>
                             <constraint firstAttribute="bottom" secondItem="XZM-nW-QDy" secondAttribute="bottom" id="l8l-Ns-HgW"/>
                             <constraint firstAttribute="trailing" secondItem="XZM-nW-QDy" secondAttribute="trailing" id="vB1-wg-fUh"/>
+                            <constraint firstItem="e4B-aW-1BW" firstAttribute="top" secondItem="AMW-X4-SJe" secondAttribute="top" constant="10" id="vHK-sH-m4I"/>
+                            <constraint firstItem="e4B-aW-1BW" firstAttribute="leading" secondItem="AMW-X4-SJe" secondAttribute="leading" constant="20" id="yXS-7e-duP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="kPI-Kf-QQ5"/>
@@ -82,6 +96,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ldz-7J-BXK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yAb-0Z-dUc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

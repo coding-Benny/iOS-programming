@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = window?.rootViewController as! UITabBarController
         let cityViewController = (tabBarController.viewControllers?[0]) as! CityViewController
         let label = cityViewController.view.subviews[1] as! UILabel
-        label.text = "benny"
+        label.text = "jhlee"
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

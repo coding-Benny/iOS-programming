@@ -18,7 +18,23 @@ class MapViewController: UIViewController {
         print("MapViewController.viewDidLoad")
     }
     
+    
+    
+}
 
+extension MapViewController {
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            break
+        }
+    }
 }
 
 extension MapViewController {
@@ -35,7 +51,7 @@ extension MapViewController {
 
 extension MapViewController {
     func updateMap(title: String, longitude: Double?, latitude: Double?) {
-        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         var center = mapView.centerCoordinate
         if let lon = longitude, let lat = latitude {
             center = CLLocationCoordinate2D(latitude: lat, longitude: lon)
