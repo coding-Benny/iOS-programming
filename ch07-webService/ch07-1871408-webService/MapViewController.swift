@@ -88,7 +88,9 @@ extension MapViewController {
             if let temperature = temperature {
                 title += String.init(format: ": %.2f℃", temperature)
             }
-            self.updateMap(title: title, longitude: longitude, latitude: latitude)
+            DispatchQueue.main.async {
+                self.updateMap(title: title, longitude: longitude, latitude: latitude)
+            }
         }
         dataTask.resume()
     }
@@ -97,8 +99,10 @@ extension MapViewController {
 extension MapViewController {
     func extractWeatherData(jsonData: Data) -> (Double?, Double?, Double?) {
         let json = try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
-        if let _ = json["cod"] {
-            return (nil, nil, nil)
+        if let code = json["cod"] {
+            if code is String, code as! String == "404" {
+                return (nil, nil, nil)
+            }
         }
         let latitude = (json["coord"] as! [String: Double])["lat"]
         let longitude = (json["coord"] as! [String: Double])["lon"]
