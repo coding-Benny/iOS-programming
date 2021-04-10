@@ -1,0 +1,16 @@
+PODS:
+  - Progress (3.0)
+
+DEPENDENCIES:
+  - Progress
+
+SPEC REPOS:
+  trunk:
+    - Progress
+
+SPEC CHECKSUMS:
+  Progress: ba9d35a566ac1b3752bf077326f2775c7cee1b80
+
+PODFILE CHECKSUM: e5216b2341816bf652da51285aa2782c0569738e
+
+COCOAPODS: 1.10.1

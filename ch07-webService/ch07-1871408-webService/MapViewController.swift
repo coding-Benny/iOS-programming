@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import Progress
 
 class MapViewController: UIViewController {
 
@@ -69,6 +70,7 @@ extension MapViewController {
 
 extension MapViewController {
     func getWeatherData(cityName city: String) {
+        Prog.start(in: self, .activityIndicator)
         var urlStr = baseURLString + "?q=" + city + "&appid=" + apiKey
         urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
@@ -90,6 +92,7 @@ extension MapViewController {
             }
             DispatchQueue.main.async {
                 self.updateMap(title: title, longitude: longitude, latitude: latitude)
+                Prog.dismiss(in: self)
             }
         }
         dataTask.resume()

@@ -1,0 +1,6 @@
+framework module Pods_ch07_1871408_webService {
+  umbrella header "Pods-ch07-1871408-webService-umbrella.h"
+
+  export *
+  module * { export * }
+}
