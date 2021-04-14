@@ -13,6 +13,7 @@
 		B2765D392625E5DB00B4E552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2765D382625E5DB00B4E552 /* Assets.xcassets */; };
 		B2765D3C2625E5DB00B4E552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2765D3A2625E5DB00B4E552 /* LaunchScreen.storyboard */; };
 		B2765D452625E5F600B4E552 /* StillImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2765D442625E5F600B4E552 /* StillImageViewController.swift */; };
+		B2D09EB72626D1CA00B0F077 /* LiveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D09EB62626D1CA00B0F077 /* LiveImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B2765D3B2625E5DB00B4E552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2765D3D2625E5DB00B4E552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2765D442625E5F600B4E552 /* StillImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillImageViewController.swift; sourceTree = "<group>"; };
+		B2D09EB62626D1CA00B0F077 /* LiveImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B2765D3A2625E5DB00B4E552 /* LaunchScreen.storyboard */,
 				B2765D3D2625E5DB00B4E552 /* Info.plist */,
 				B2765D442625E5F600B4E552 /* StillImageViewController.swift */,
+				B2D09EB62626D1CA00B0F077 /* LiveImageViewController.swift */,
 			);
 			path = "ch08-cameraCoreML";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				B2765D302625E5D900B4E552 /* AppDelegate.swift in Sources */,
 				B2765D322625E5D900B4E552 /* SceneDelegate.swift in Sources */,
+				B2D09EB72626D1CA00B0F077 /* LiveImageViewController.swift in Sources */,
 				B2765D452625E5F600B4E552 /* StillImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
