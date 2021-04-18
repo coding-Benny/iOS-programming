@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2560AC3263167E200387975 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2560AC2263167E200387975 /* User.swift */; };
+		B2560AC6263168F700387975 /* UserGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2560AC5263168F700387975 /* UserGroup.swift */; };
 		B26223E4262C4A8F0010817E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26223E3262C4A8F0010817E /* AppDelegate.swift */; };
 		B26223E6262C4A8F0010817E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26223E5262C4A8F0010817E /* SceneDelegate.swift */; };
 		B26223E8262C4A8F0010817E /* UserGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26223E7262C4A8F0010817E /* UserGroupViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2560AC2263167E200387975 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B2560AC5263168F700387975 /* UserGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroup.swift; sourceTree = "<group>"; };
 		B26223E0262C4A8F0010817E /* ch09-1871408-tableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ch09-1871408-tableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26223E3262C4A8F0010817E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B26223E5262C4A8F0010817E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		B26223E2262C4A8F0010817E /* ch09-1871408-tableView */ = {
 			isa = PBXGroup;
 			children = (
+				B2560AC2263167E200387975 /* User.swift */,
 				B26223E3262C4A8F0010817E /* AppDelegate.swift */,
 				B26223E5262C4A8F0010817E /* SceneDelegate.swift */,
 				B26223E7262C4A8F0010817E /* UserGroupViewController.swift */,
@@ -63,6 +68,7 @@
 				B26223EC262C4A920010817E /* Assets.xcassets */,
 				B26223EE262C4A920010817E /* LaunchScreen.storyboard */,
 				B26223F1262C4A920010817E /* Info.plist */,
+				B2560AC5263168F700387975 /* UserGroup.swift */,
 			);
 			path = "ch09-1871408-tableView";
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2560AC3263167E200387975 /* User.swift in Sources */,
+				B2560AC6263168F700387975 /* UserGroup.swift in Sources */,
 				B26223E8262C4A8F0010817E /* UserGroupViewController.swift in Sources */,
 				B26223E4262C4A8F0010817E /* AppDelegate.swift in Sources */,
 				B26223E6262C4A8F0010817E /* SceneDelegate.swift in Sources */,
