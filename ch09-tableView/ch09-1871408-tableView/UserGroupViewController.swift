@@ -9,7 +9,7 @@ import UIKit
 
 class UserGroupViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userTableView: UITableView!
     var userGroup: UserGroup!
     
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class UserGroupViewController: UIViewController {
         userGroup = UserGroup()
         userGroup.testData()
         
-        tableView.dataSource = self
+        userTableView.dataSource = self
     }
 
 
@@ -30,7 +30,8 @@ extension UserGroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+        // let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell")!
         
         let user = userGroup.users[indexPath.row]
         cell.textLabel!.text = user.id
