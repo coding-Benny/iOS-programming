@@ -19,6 +19,8 @@ class UserGroupViewController: UIViewController {
         userGroup.testData()
         
         userTableView.dataSource = self
+        userTableView.delegate = self
+        // userTableView.isEditing = true
     }
 
 
@@ -36,6 +38,23 @@ extension UserGroupViewController: UITableViewDataSource {
         let user = userGroup.users[indexPath.row]
         cell.textLabel!.text = user.id
         cell.detailTextLabel!.text = user.name
+        cell.backgroundColor = .white
+        
+        if indexPath.row % 2 == 0 {
+            cell.accessoryType = .checkmark  // type
+        } else {
+            cell.accessoryView = UISwitch(frame: CGRect())
+        }
         return cell
+    }
+}
+
+extension UserGroupViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)!.backgroundColor = .green
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)!.backgroundColor = .white
     }
 }
