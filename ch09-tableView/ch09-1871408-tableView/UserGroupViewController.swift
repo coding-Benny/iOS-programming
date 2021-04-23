@@ -11,7 +11,31 @@ class UserGroupViewController: UIViewController {
 
     @IBOutlet weak var userTableView: UITableView!
     var userGroup: UserGroup!
-    
+
+}
+
+extension UserGroupViewController {
+    @IBAction func editTable(_ sender: UIButton) {
+        if userTableView.isEditing == true {
+            userTableView.isEditing = false
+            sender.setTitle("Edit", for: .normal)
+        } else {
+            userTableView.isEditing = true
+            sender.setTitle("Done", for: .normal)
+        }
+    }
+}
+
+extension UserGroupViewController {
+    @IBAction func addUser(_ sender: UIButton) {
+        let user = User(random: true)
+        userGroup.addUser(user: user)
+        let indexPath = IndexPath(row: userGroup.count() - 1, section: 0)
+        userTableView.insertRows(at: [indexPath], with: .automatic)
+    }
+}
+
+extension UserGroupViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,8 +46,6 @@ class UserGroupViewController: UIViewController {
         userTableView.delegate = self
         // userTableView.isEditing = true
     }
-
-
 }
 
 extension UserGroupViewController: UITableViewDataSource {
@@ -56,5 +78,24 @@ extension UserGroupViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)!.backgroundColor = .white
+    }
+}
+
+extension UserGroupViewController {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            userGroup.removeUser(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
+extension UserGroupViewController {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let from = userGroup.users[sourceIndexPath.row]
+        let to = userGroup.users[destinationIndexPath.row]
+        userGroup.modifyUser(user: from, index: destinationIndexPath.row)
+        userGroup.modifyUser(user: to, index: sourceIndexPath.row)
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
 }

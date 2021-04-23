@@ -15,7 +15,7 @@ class UserGroup: NSObject {
     }
     
     func testData() {
-        for _ in 0...20 {
+        for _ in 0...10 {
             users.append(User(random: true))
         }
     }
@@ -24,7 +24,7 @@ class UserGroup: NSObject {
         return users.count
     }
     
-    func addUser(user: User, index: Int) {
+    func addUser(user: User) {
         users.append(user)
     }
     
