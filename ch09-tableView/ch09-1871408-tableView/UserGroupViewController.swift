@@ -84,8 +84,21 @@ extension UserGroupViewController: UITableViewDelegate {
 extension UserGroupViewController {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            userGroup.removeUser(index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let user = userGroup.users[indexPath.row]
+            let title = "Delete \(user.name)"
+            let message = "Are you sure?"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let deleteAction = UIAlertAction(title: "Sure", style: .destructive) { [self]
+                (action) in
+                self.userGroup.removeUser(index: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            
+            present(alertController, animated: true)
         }
     }
 }
