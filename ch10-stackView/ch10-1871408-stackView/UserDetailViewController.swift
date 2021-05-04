@@ -30,5 +30,6 @@ extension UserDetailViewController {
 
 extension UserDetailViewController {
     @IBAction func dismissUserViewController(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

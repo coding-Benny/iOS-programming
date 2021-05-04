@@ -112,3 +112,12 @@ extension UserGroupViewController {
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
 }
+
+extension UserGroupViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let userDetailViewController = segue.destination as! UserDetailViewController
+        if let row = userTableView.indexPathForSelectedRow?.row {
+            userDetailViewController.user = userGroup.users[row]
+        }
+    }
+}
