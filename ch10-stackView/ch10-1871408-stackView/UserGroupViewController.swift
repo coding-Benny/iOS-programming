@@ -11,7 +11,24 @@ class UserGroupViewController: UIViewController {
 
     @IBOutlet weak var userTableView: UITableView!
     var userGroup: UserGroup!
+    var facilityGroup: FacilityGroup!
 
+}
+
+extension UserGroupViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        userGroup = UserGroup()
+        userGroup.testData()
+        
+        facilityGroup = FacilityGroup()
+        facilityGroup.testData()
+        
+        userTableView.dataSource = self
+        userTableView.delegate = self
+        // userTableView.isEditing = true
+    }
 }
 
 extension UserGroupViewController {
@@ -32,19 +49,6 @@ extension UserGroupViewController {
         userGroup.addUser(user: user)
         let indexPath = IndexPath(row: userGroup.count() - 1, section: 0)
         userTableView.insertRows(at: [indexPath], with: .automatic)
-    }
-}
-
-extension UserGroupViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        userGroup = UserGroup()
-        userGroup.testData()
-        
-        userTableView.dataSource = self
-        userTableView.delegate = self
-        // userTableView.isEditing = true
     }
 }
 
@@ -118,6 +122,7 @@ extension UserGroupViewController {
         let userDetailViewController = segue.destination as! UserDetailViewController
         if let row = userTableView.indexPathForSelectedRow?.row {
             userDetailViewController.user = userGroup.users[row]
+            userDetailViewController.facilityGroup = facilityGroup
         }
     }
 }

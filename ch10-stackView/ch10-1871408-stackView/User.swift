@@ -11,11 +11,13 @@ class User: NSObject {
     var id: String
     var name: String
     var passwd: String?
+    var uses: [String]
     
     init(id: String, name: String, passwd: String?) {
         self.id = id
         self.name = name
         self.passwd = passwd
+        self.uses = []
         super.init()
     }
 }
