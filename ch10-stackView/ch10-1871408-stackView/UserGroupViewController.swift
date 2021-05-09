@@ -32,6 +32,14 @@ extension UserGroupViewController {
 }
 
 extension UserGroupViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPath = userTableView.indexPathForSelectedRow {
+            userTableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
+extension UserGroupViewController {
     @IBAction func editTable(_ sender: UIButton) {
         if userTableView.isEditing == true {
             userTableView.isEditing = false

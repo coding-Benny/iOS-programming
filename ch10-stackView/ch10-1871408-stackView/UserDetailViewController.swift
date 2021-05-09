@@ -16,6 +16,7 @@ class UserDetailViewController: UIViewController {
     
     var user: User?
     var facilityGroup: FacilityGroup!
+    var map: [String: Int] = [:]
 }
 
 extension UserDetailViewController {
@@ -26,7 +27,21 @@ extension UserDetailViewController {
             idTextField.text = user.id
             nameTextField.text = user.name
             passwdTextField.text = user.passwd
+            for name in user.uses {
+                map[name] = 1
+            }
             facilityTableView.dataSource = self
+        }
+    }
+}
+
+extension UserDetailViewController {
+    override func viewWillDisappear(_ animated: Bool) {
+        if let user = user {
+            user.id = idTextField.text!
+            user.name = nameTextField.text!
+            user.passwd = passwdTextField.text
+            user.uses = Array(map.keys)
         }
     }
 }
@@ -47,6 +62,20 @@ extension UserDetailViewController: UITableViewDataSource {
         let facility = facilityGroup.facilities[indexPath.row]
         cell.textLabel!.text = facility.name
         cell.detailTextLabel!.text = "\(facility.open):00~\(facility.close):00, \(facility.unit)"
+        let allowed = UISwitch(frame: CGRect())
+        allowed.addTarget(self, action: #selector(facilityAllowed), for: .valueChanged)
+        cell.accessoryView = allowed
+        allowed.tag = indexPath.row
+        if let _ = map[facility.name] {
+            allowed.isOn = true
+        }
         return cell
+    }
+}
+
+extension UserDetailViewController {
+    @objc func facilityAllowed(sender: UISwitch) {
+        let facilityName = facilityGroup.facilities[sender.tag].name
+        map[facilityName] = sender.isOn ? 1 : nil
     }
 }
