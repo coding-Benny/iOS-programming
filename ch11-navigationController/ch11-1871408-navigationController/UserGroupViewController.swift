@@ -28,13 +28,17 @@ extension UserGroupViewController {
         userTableView.dataSource = self
         userTableView.delegate = self
         // userTableView.isEditing = true
+        
+        self.navigationItem.title = "User Group"
     }
 }
 
 extension UserGroupViewController {
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if let indexPath = userTableView.indexPathForSelectedRow {
             userTableView.reloadRows(at: [indexPath], with: .automatic)
+            userTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            userTableView.cellForRow(at: indexPath)?.backgroundColor = .green
         }
     }
 }

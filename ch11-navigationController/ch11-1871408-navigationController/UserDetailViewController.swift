@@ -37,6 +37,8 @@ extension UserDetailViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        navigationItem.title = "\(user!.name)"
     }
 }
 
@@ -54,12 +56,6 @@ extension UserDetailViewController {
             user.passwd = passwdTextField.text
             user.uses = Array(map.keys)
         }
-    }
-}
-
-extension UserDetailViewController {
-    @IBAction func dismissUserViewController(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
