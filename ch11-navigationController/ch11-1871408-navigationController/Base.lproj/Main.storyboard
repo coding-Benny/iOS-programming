@@ -177,6 +177,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="sdA-Hf-BdT" kind="show" identifier="ShowFacility" id="ndB-lE-TDq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -209,6 +212,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boi-tb-Qet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1547.8260869565217" y="697.76785714285711"/>
+        </scene>
+        <!--Facility Detail View Controller-->
+        <scene sceneID="m29-2z-Pof">
+            <objects>
+                <viewController id="sdA-Hf-BdT" customClass="FacilityDetailViewController" customModule="ch11_1871408_navigationController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eqc-hO-KkX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9NI-fe-0gn">
+                                <rect key="frame" x="8" y="96" width="398" height="758"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3md-4K-8Fg">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkO-hA-v1r">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="760" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpK-gW-y3p">
+                                                <rect key="frame" x="105.5" y="0.0" width="292.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-NS-B4u">
+                                        <rect key="frame" x="0.0" y="42" width="398" height="233.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-PK-N7w">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="233.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4k-hr-e86">
+                                                <rect key="frame" x="105.5" y="0.0" width="292.5" height="233.5"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3PK-MJ-DQb">
+                                        <rect key="frame" x="0.0" y="283.5" width="398" height="233"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOC-KM-cm9">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="233"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmo-Go-fDd">
+                                                <rect key="frame" x="105.5" y="0.0" width="292.5" height="233"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zSu-27-pFF">
+                                        <rect key="frame" x="0.0" y="524.5" width="398" height="233.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="Booking Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGm-bp-Kme">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="233.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Su2-la-kfV">
+                                                <rect key="frame" x="105.5" y="0.0" width="292.5" height="233.5"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0Zj-PK-N7w" firstAttribute="trailing" secondItem="KOC-KM-cm9" secondAttribute="trailing" id="8uf-EC-jbh"/>
+                                    <constraint firstItem="K4k-hr-e86" firstAttribute="height" secondItem="fmo-Go-fDd" secondAttribute="height" id="V74-er-ERe"/>
+                                    <constraint firstItem="vkO-hA-v1r" firstAttribute="trailing" secondItem="0Zj-PK-N7w" secondAttribute="trailing" id="kza-uM-PLn"/>
+                                    <constraint firstItem="KOC-KM-cm9" firstAttribute="trailing" secondItem="fGm-bp-Kme" secondAttribute="trailing" id="lTA-kB-Pf1"/>
+                                    <constraint firstItem="fmo-Go-fDd" firstAttribute="height" secondItem="Su2-la-kfV" secondAttribute="height" id="m4D-xe-P5L"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mY6-Uj-1z1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9NI-fe-0gn" secondAttribute="trailing" constant="8" id="GAg-Aa-5q9"/>
+                            <constraint firstItem="9NI-fe-0gn" firstAttribute="top" secondItem="mY6-Uj-1z1" secondAttribute="top" constant="8" id="KJh-sK-Gkb"/>
+                            <constraint firstItem="9NI-fe-0gn" firstAttribute="leading" secondItem="mY6-Uj-1z1" secondAttribute="leading" constant="8" id="dkv-Jv-z1u"/>
+                            <constraint firstItem="mY6-Uj-1z1" firstAttribute="bottom" secondItem="9NI-fe-0gn" secondAttribute="bottom" constant="8" id="fd2-ZO-lRD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cVD-kB-zFP"/>
+                    <connections>
+                        <outlet property="bookingUnitPickerView" destination="Su2-la-kfV" id="9vT-SV-N4v"/>
+                        <outlet property="closePickerView" destination="fmo-Go-fDd" id="Y88-I8-gN4"/>
+                        <outlet property="nameTextField" destination="cpK-gW-y3p" id="RHJ-fd-Ks6"/>
+                        <outlet property="openPickerView" destination="K4k-hr-e86" id="nAe-57-jE6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ji-uR-ocX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-802.89855072463774" y="697.76785714285711"/>
         </scene>
         <!--User Group View Controller-->
         <scene sceneID="tne-QT-ifu">

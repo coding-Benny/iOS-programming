@@ -124,12 +124,11 @@ extension FacilityGroupViewController {
     }
 }
 
-//extension FacilityGroupViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let facilityDetailViewController = segue.destination as! FacilityDetailViewController
-//        if let row = facilityTableView.indexPathForSelectedRow?.row {
-//            facilityDetailViewController.facility = facilityGroup.facilities[row]
-//            facilityDetailViewController.facilityGroup = facilityGroup
-//        }
-//    }
-//}
+extension FacilityGroupViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let facilityDetailViewController = segue.destination as! FacilityDetailViewController
+        if let row = facilityTableView.indexPathForSelectedRow?.row {
+            facilityDetailViewController.facility = facilityGroup.facilities[row]
+        }
+    }
+}
