@@ -17,6 +17,7 @@
 		B26223EB262C4A8F0010817E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26223E9262C4A8F0010817E /* Main.storyboard */; };
 		B26223ED262C4A920010817E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B26223EC262C4A920010817E /* Assets.xcassets */; };
 		B26223F0262C4A920010817E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26223EE262C4A920010817E /* LaunchScreen.storyboard */; };
+		B265C8D3264F955C00A6D356 /* FacilityGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B265C8D2264F955C00A6D356 /* FacilityGroupViewController.swift */; };
 		B28E857E2646550800635894 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E857D2646550800635894 /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		B26223EC262C4A920010817E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B26223EF262C4A920010817E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B26223F1262C4A920010817E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B265C8D2264F955C00A6D356 /* FacilityGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityGroupViewController.swift; sourceTree = "<group>"; };
 		B28E857D2646550800635894 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				B28E857D2646550800635894 /* UserDetailViewController.swift */,
 				B231C8E52647BF290087001B /* Facility.swift */,
 				B231C8E72647BF390087001B /* FacilityGroup.swift */,
+				B265C8D2264F955C00A6D356 /* FacilityGroupViewController.swift */,
 			);
 			path = "ch11-1871408-navigationController";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B231C8E82647BF390087001B /* FacilityGroup.swift in Sources */,
+				B265C8D3264F955C00A6D356 /* FacilityGroupViewController.swift in Sources */,
 				B2560AC3263167E200387975 /* User.swift in Sources */,
 				B2560AC6263168F700387975 /* UserGroup.swift in Sources */,
 				B28E857E2646550800635894 /* UserDetailViewController.swift in Sources */,
