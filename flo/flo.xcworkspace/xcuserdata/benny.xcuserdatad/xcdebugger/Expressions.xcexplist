@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MusicPlayViewController.updateProgress():MusicPlayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "MusicHelper.musicHelper.audioPlayer!.duration">
+            </PersistentString>
+            <PersistentString
+               value = "lyricsFile">
+            </PersistentString>
+            <PersistentString
+               value = "MusicHelper.musicHelper.audioPlayer!.currentTime">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

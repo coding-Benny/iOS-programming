@@ -1,0 +1,24 @@
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "8qk-gf-1nm"; */
+"8qk-gf-1nm.title" = "Search";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "GpE-tJ-hHM"; */
+"GpE-tJ-hHM.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "more"; ObjectID = "Ofj-F1-8DC"; */
+"Ofj-F1-8DC.title" = "more";
+
+/* Class = "UITabBarItem"; title = "My music"; ObjectID = "Vub-mi-y3q"; */
+"Vub-mi-y3q.title" = "My music";
+
+/* Class = "UILabel"; text = "보관함"; ObjectID = "Xwg-xU-sGA"; */
+"Xwg-xU-sGA.text" = "보관함";
+
+/* Class = "UITabBarItem"; title = "Chart"; ObjectID = "oa0-DD-BB1"; */
+"oa0-DD-BB1.title" = "Chart";
+
+/* Class = "UICommand"; title = "Item"; ObjectID = "pdL-Ma-37N"; */
+"pdL-Ma-37N.title" = "Item";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "z4O-BT-HqH"; */
+"z4O-BT-HqH.text" = "Title";

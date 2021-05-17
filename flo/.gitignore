@@ -1,0 +1,5 @@
+*.lrc
+*.mp3
+.DS_Store
+Podfile.lock
+Pods
