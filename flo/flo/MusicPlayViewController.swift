@@ -24,8 +24,7 @@ class MusicPlayViewController: UIViewController {
     
     var music: Music?
     var musicTableView: UITableView?
-    var musicGroup: MusicGroup!
-    var musicPlayer: AVAudioPlayer?
+    var musicGroup: MusicGroupWithFirestore!
     var playImg: UIImage?
     var pauseImg: UIImage?
     var favoriteImg: UIImage?
@@ -35,7 +34,6 @@ class MusicPlayViewController: UIViewController {
     var progressTime: Timer!
     var isLiked: Bool?
     var isLoop: Bool = false
-    var isPaused: Bool = false
     var lyrics: Array<String>?
     var idx: Int!
     
@@ -45,7 +43,13 @@ class MusicPlayViewController: UIViewController {
 extension MusicPlayViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        if let sceneDelegate = (UIApplication.shared.connectedScenes.first as? UIWindowScene)!.delegate as? SceneDelegate {
+            musicGroup = sceneDelegate.musicGroup
+            musicGroup.setMusicGroupListener(musicGroupListener: musicListener)
+            musicGroup.setQuery(queryStr: "")
+        }
+        
         titleLabel.text = music!.title
         artistLabel.text = music!.artist
         albumImageView.image = music!.albumCover
@@ -144,14 +148,13 @@ extension MusicPlayViewController {
 
 extension MusicPlayViewController {  // 재생-일시정지 버튼
     @IBAction func playButton(_ sender: UIButton) {
-        if musicPlayer!.isPlaying {
-            isPaused = true
-            musicPlayer!.pause()
-            playButton.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
+        
+        if MusicHelper.musicHelper.audioPlayer!.isPlaying {
+            MusicHelper.musicHelper.audioPlayer!.pause()
+            playButton.setImage(playImg, for: .normal)
         } else {
-            isPaused = false
-            musicPlayer!.play()
-            playButton.setImage(UIImage(systemName: "pause.fill", withConfiguration: config), for: .normal)
+            MusicHelper.musicHelper.audioPlayer!.play()
+            playButton.setImage(pauseImg, for: .normal)
         }
     }
 
@@ -159,29 +162,7 @@ extension MusicPlayViewController {  // 재생-일시정지 버튼
 
 extension MusicPlayViewController {
     func prepareSongAndSession() {
-        do {
-            musicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: music!.title, ofType: "mp3")!))
-            musicPlayer!.prepareToPlay()
-
-            let currentTime = Int((musicPlayer!.currentTime))
-            let currentMinutes = currentTime / 60
-            let currentSeconds = currentTime - currentMinutes * 60
-            currentPlayTimeLabel.text = NSString(format: "%02d:%02d", currentMinutes, currentSeconds) as String
-
-            let duration = Int((musicPlayer!.duration - (musicPlayer!.currentTime)))
-            let durationMinutes = duration / 60
-            let durationSeconds = duration - durationMinutes * 60
-            musicDurationLabel.text = NSString(format: "%02d:%02d", durationMinutes, durationSeconds) as String
-
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(AVAudioSession.Category.playback)
-            } catch let sessionError {
-                print(sessionError)
-            }
-        } catch let songPlayerError{
-            print(songPlayerError)
-        }
+        MusicHelper.musicHelper.playBackgroundMusic(title: music!.title)
     }
 }
 
@@ -193,12 +174,42 @@ extension MusicPlayViewController {
         currentPlayTimeLabel.text = NSString(format: "%02d:%02d", currentMin, currentSec) as String
         currentPlayTimeLabel.textColor = UIColor.systemIndigo
         seekBar.value = Float(MusicHelper.musicHelper.audioPlayer!.currentTime)
+        for (index, lyric) in lyrics!.enumerated() {
+            var currentIndex: IndexPath?
+            currentIndex = IndexPath(row: index, section: 0)
+            if currentIndex != nil {
+                if lyric.contains(currentPlayTimeLabel.text!) {
+                    lyricsTableView.scrollToRow(at: currentIndex!, at: .top, animated: true)
+                    let currentLyrics = lyricsTableView.cellForRow(at: currentIndex!)?.textLabel
+                    currentLyrics?.font = .systemFont(ofSize: 18.0, weight: .bold)
+                    currentLyrics?.textColor = UIColor(red: CGFloat(198.0/255.0), green: CGFloat(227.0/255.0), blue: CGFloat(119.0/255.0), alpha: CGFloat(1.0))
+                    if currentIndex!.row > 0 {
+                        if let previousLyrics = lyricsTableView.cellForRow(at: IndexPath(row: currentIndex!.row - 1, section: 0))?.textLabel {
+                            previousLyrics.font = .systemFont(ofSize: 15.0, weight: .regular)
+                            previousLyrics.textColor = .systemGray5
+                        }
+                        if let nextLyrics = lyricsTableView.cellForRow(at: IndexPath(row: currentIndex!.row + 1, section: 0))?.textLabel {
+                            nextLyrics.font = .systemFont(ofSize: 16.0, weight: .regular)
+                            nextLyrics.textColor = .systemGray5
+                        }
+                        
+                    }
+                }
+            }
+        }
+        if (MusicHelper.musicHelper.audioPlayer!.numberOfLoops == 0) && (currentTime == Int(MusicHelper.musicHelper.audioPlayer!.duration)) {
+            playButton.setImage(playImg, for: .normal)
+            lyricsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 
 extension MusicPlayViewController {
     @IBAction func changePlayingTime(_ sender: UISlider) {
-        
+        MusicHelper.musicHelper.audioPlayer!.stop()
+        MusicHelper.musicHelper.audioPlayer!.currentTime = TimeInterval(seekBar.value)
+        MusicHelper.musicHelper.audioPlayer!.prepareToPlay()
+        MusicHelper.musicHelper.audioPlayer!.play()
     }
 }
 
